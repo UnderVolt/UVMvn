@@ -23,6 +23,18 @@ Commands:
         "C:/Modules/io/undervolt/mvn/EventSystem/1.0/EventSystem-1.0.jar"
 
 --port=Number - Default: 8080
+
+Maven: 
+    <repository>
+      <id>uvmvn</id>
+      <name>UVMvn Repository</name>
+      <url>http://[host-ip]:[host-port]/maven</url>
+    </repository>
+Gradle:
+    maven {
+        name 'UVMvn Repository'
+        url 'http://[host-ip]:[host-port]/maven' 
+    }
 ```
 
 That's it!
