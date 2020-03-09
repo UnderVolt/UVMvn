@@ -43,12 +43,12 @@ app.get('/maven/*', (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log("[UVLib] Started on port: " + port);
+    console.log("[UVMvn] Started on port: " + port);
 }).on('error', (err) => {
     if(err.message.includes("EADDRINUSE")){
-        console.log("[UVLib] There was an error starting the server");
-        console.log("[UVLib] The port is already in use try changing it with --port=1234");
+        console.log("[UVMvn] There was an error starting the server");
+        console.log("[UVMvn] The port is already in use try changing it with --port=1234");
     }else{
-        console.log("[UVLib] There was an error starting the server");
+        console.log("[UVMvn] There was an error starting the server");
     }
 });
