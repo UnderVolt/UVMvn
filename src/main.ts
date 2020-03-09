@@ -20,8 +20,11 @@ app.get('/maven/*', (req, res) => {
     const version = unformatted[unformatted.length - 1];
     const ext = unformattedFile[unformattedFile.length - 1];
     const file = artifact + "-" + version + "." + ext;
-    const local = path.join(!args.path ? path.join(__dirname, "..", "modules") : path.isAbsolute(args.path) ?  args.path : path.join(__dirname, "..", args.path), directory, artifact, version, file);
+    const localDir = !args.path ? path.join(__dirname, "..", "modules") : path.isAbsolute(args.path) ?  args.path : path.join(__dirname, "..", args.path);
+    const local = path.join(localDir, directory, artifact, version, file);
     const exists = fs.existsSync(local);
+
+    if(!fs.existsSync(localDir)) fs.mkdirSync(localDir);
 
     if(!sendFirst) console.log("--------------------");
 
